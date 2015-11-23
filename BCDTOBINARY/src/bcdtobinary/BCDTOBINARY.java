@@ -20,7 +20,7 @@ public class BCDTOBINARY {
       System.out.println(get);
    //   System.out.println(Integer.toBinaryString(55));
     //   System.out.println(Integer.toBinaryString(swapnibble(get)));
-       System.out.println(Integer.reverseBytes(get));
+       System.out.println();
     }
     
     public static int Converter(int a){
