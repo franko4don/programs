@@ -16,28 +16,44 @@ public class BCDTOBINARY {
      */
     public static void main(String[] args) {
       Scanner sc=new Scanner(System.in);  
-      System.out.println(Converter(55));
-      System.out.println(Integer.toBinaryString(Converter(55)));
+      int get=Converter(55);
+      System.out.println(get);
+   //   System.out.println(Integer.toBinaryString(55));
+    //   System.out.println(Integer.toBinaryString(swapnibble(get)));
+       System.out.println(Integer.reverseBytes(get));
     }
     
     public static int Converter(int a){
-   int temp=0; int ans=0;
-   while(a!=1){
+   int temp; int ans=0;
+   while(a!=0){
    temp=a%2;
    a/=2;
    if(temp==1){
    ans=ans^1;
-   ans=ans<<1;
-   
+   ans<<=1;
    }else{
-   ans=ans<<1;
+   ans<<=1;
    }
    System.out.println(a+"   "+Integer.toBinaryString(ans)+"   "+temp);
    }
-   
+  // int length=Integer.toBinaryString(ans).length();
    return ans;
     }
     
+    
+    public static int swapnibble(int answer){
+    int y=answer; int r=answer;
+    r&=0x0F;
+    System.out.println(Integer.toBinaryString(r));
+    r<<=3;
+    System.out.println(Integer.toBinaryString(r)+"  left shift r");
+    y&=0xF0;
+    System.out.println(Integer.toBinaryString(y));
+    y>>=4;
+    System.out.println(Integer.toBinaryString(y)+"  left shift y");
+    answer=r^y;
+        return answer;
+    }
        public static String repeat(String str, int times){
    return new String(new char[times]).replace("\0", str);
 }
