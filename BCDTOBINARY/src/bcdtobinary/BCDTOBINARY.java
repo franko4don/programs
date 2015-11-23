@@ -21,15 +21,21 @@ public class BCDTOBINARY {
     }
     
     public static int Converter(int a){
-   int r,t;
-   t=a & 0x0F;
-   r=t;
-   a=0xF0 & a;
-   t=a>>4;
-   t=0x0F & t;
-   r=t*10+r;
+   int temp=0; int ans=0;
+   while(a!=1){
+   temp=a%2;
+   a/=2;
+   if(temp==1){
+   ans=ans^1;
+   ans=ans<<1;
    
-   return r;
+   }else{
+   ans=ans<<1;
+   }
+   System.out.println(a+"   "+Integer.toBinaryString(ans)+"   "+temp);
+   }
+   
+   return ans;
     }
     
        public static String repeat(String str, int times){
